@@ -43,7 +43,7 @@
     function addCard({ word, img, audio }) {
       const div = document.createElement("div"); div.className = "card";
       div.innerHTML = `
-        <figure><image src="image/${img}" alt="${word}"></figure>
+        <figure><img src="image/${img}" alt="${word}"></figure>
         <div class="label"><span class="word">${word}</span>
         <button class="speak" data-audio="${word}">🔊</button></div>
         <audio id="audio-${word}"><source src="audio/${audio}" type="audio/mpeg"></audio>`;
