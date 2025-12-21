@@ -13,7 +13,7 @@ jobs:
 
       - name: Ensure no invalid <image> tags exist
         run: |
-          if grep -R "<image" .; then
+          if grep -R --exclude-dir=.github --exclude-dir=.git "<image" .; then
             echo "Found invalid <image> tags. Use <img> instead."
             exit 1
           fi
