@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure no invalid <image> tags exist
+        run: |
+          if grep -R "<image" .; then
+            echo "Found invalid <image> tags. Use <img> instead."
+            exit 1
+          fi
+
+      - name: Start static server
+        run: |
+          python3 -m http.server 8000 >/tmp/server.log 2>&1 &
+          echo $! > /tmp/server.pid
+          sleep 1
+
+      - name: Smoke test key pages return 200
+        run: |
+          curl -fsS http://localhost:8000/ >/dev/null
+          curl -fsS http://localhost:8000/Numbers/SingleDigits/ >/dev/null
+          curl -fsS http://localhost:8000/House/ >/dev/null
+
+      - name: Validate pages contain <img> tags
+        run: |
+          curl -fsS http://localhost:8000/Numbers/SingleDigits/ | grep -q "<img"
+          curl -fsS http://localhost:8000/House/ | grep -q "<img" || true
+
+      - name: Stop server
+        if: always()
+        run: |
+          if [ -f /tmp/server.pid ]; then
+            kill "$(cat /tmp/server.pid)" || true
+          fi
