@@ -8,6 +8,11 @@ The project emphasizes clarity, repetition, and low-friction interaction by comb
 The current version focuses on a small, complete feature set rather than breadth. Only fully working categories are exposed to users.
 
 ---
+## Live Demo
+```
+https://jas812000.github.io/learn-english-together/
+```
+---
 
 ## Features
 - Image-based vocabulary cards
@@ -132,3 +137,6 @@ Automated checks to verify asset paths and media availability
 ## License
 This project is licensed under the MIT License.
 See the [LICENSE](LICENSE) file for details.
+
+---
+
