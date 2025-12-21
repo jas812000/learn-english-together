@@ -1,103 +1,134 @@
-# Learn-English-Together
+# English Practice Zone (Learn English Together)
 
-![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Deployed-success)
-![Live Demo](https://img.shields.io/badge/Live%20Demo-Available-blue)
+## Overview
+English Practice Zone is a lightweight, browser-based vocabulary practice application designed for Thai speakers learning English.
 
-**Live Site:** https://jas812000.github.io/Learn-English-Together/  
-**Repository:** https://github.com/jas812000/Learn-English-Together
+The project emphasizes clarity, repetition, and low-friction interaction by combining images, English labels, and tap-to-play pronunciation audio. It is implemented as a static web application to keep deployment simple, portable, and easy to understand.
 
----
-
-## Project Overview
-
-Learn-English-Together is a browser-based, audio-visual vocabulary learning platform designed for Thai speakers learning English. The system organizes vocabulary into hierarchical categories (e.g., House → Kitchen → Appliances) and presents each item using a combination of image, English label, and audio pronunciation. The platform emphasizes intuitive navigation, minimal text dependency, and immediate auditory feedback, making it suitable for early-stage and low-literacy learners.
-
-The application is fully client-side and deployed via GitHub Pages, requiring no backend services or databases.
+The current version focuses on a small, complete feature set rather than breadth. Only fully working categories are exposed to users.
 
 ---
 
-## Objective
-
-The primary engineering goals of this project were to:
-
-- Design an intuitive and accessible UI for beginner English learners
-- Implement a scalable frontend structure for organizing large sets of static assets
-- Provide reliable audio playback for pronunciation practice
-- Support multilingual navigation cues (Thai and English)
-- Optimize performance and simplicity using a static-site architecture
+## Features
+- Image-based vocabulary cards
+- Tap-to-play pronunciation audio
+- Bilingual category navigation (Thai and English)
+- Mobile-friendly card layout
+- Static-site architecture (no backend required)
 
 ---
 
-## Scope & Assumptions
+## Architecture Overview
+The application follows a simple, static, content-driven structure:
 
-- The project focuses on vocabulary recognition and pronunciation, not grammar or sentence construction
-- Target users are Thai learners at beginner to A1 English proficiency
-- All images and audio files are served as static assets
-- No user accounts, progress tracking, or backend services are included
-- The interface is designed to be mobile-friendly and touch-accessible
+### Application Layer
+- index.html serves as the entry point and category selector
+- Each category page renders vocabulary cards for a specific topic
 
----
+### Presentation Layer
+- HTML defines page structure and semantic content
+- CSS provides responsive layout and consistent visual styling
 
-## Methodology / Approach
+### Interaction Layer
+Vanilla JavaScript handles:
+- Audio playback
+- Small UI interactions
+- No frameworks or build tools are required
 
-### UI/UX Design
-- Hierarchical navigation to reduce cognitive load
-- Large, clear imagery to support visual learning
-- Speaker icons for intuitive audio playback
-- Minimal English text to lower the entry barrier
-- Thai-language category labels for orientation
-- Consistent card-based layouts across categories
+### Asset Organization
+Each vocabulary set contains:
+- image/ directory for PNG images
+- audio/ directory for MP3 pronunciation files
+This keeps content self-contained and easy to extend
 
-### Frontend Architecture
-- Static HTML pages per category for predictable routing
-- Organized directory structure for images and audio assets
-- Lightweight JavaScript for handling audio playback
-- Reusable layout patterns to support future expansion
-- Deployment through GitHub Pages for fast, global access
+### Data Model
+Vocabulary items are defined directly in page-level JavaScript as small, explicit data structures.
 
----
+Each item includes:
+- An identifier
+- A display label
+- An image file reference
+- An audio file reference
 
-## Tools & Technologies
-
-- **Languages:** HTML5, CSS3, JavaScript
-- **Architecture:** Static site, client-side only
-- **Version Control:** Git, GitHub
-- **Deployment:** GitHub Pages
-- **Assets:** Local image and MP3 audio files
+This approach favors transparency and ease of modification over abstraction.
 
 ---
 
-## Key Design Decisions
+## Error Handling Strategy
+The application uses defensive interaction patterns, including:
 
-- **Static-site deployment** was chosen to maximize simplicity, performance, and reliability
-- **Directory-based content organization** enables straightforward scaling by adding new categories
-- **Native browser audio APIs** ensure compatibility and low latency
-- **Minimalist UI design** aligns with ESL pedagogy and accessibility best practices
-- **Breadcrumb navigation** supports deep exploration without user disorientation
+- Safe handling of missing audio elements
+- Graceful failure when media playback is blocked by the browser
+- No hard dependency on external services or APIs
 
----
-
-## Artifacts & Documentation
-
-- **Live Deployed Site:**  
-  https://jas812000.github.io/Learn-English-Together/
-
-- **Source Code Repository:**  
-  https://github.com/jas812000/Learn-English-Together
+Failures in individual media files do not prevent the rest of the page from functioning.
 
 ---
 
-## Outcome / Takeaways
+## Running the Application
+The project is a static site and does not require a backend or build step.
 
-This project demonstrates the ability to design and implement a user-centered frontend system with a clear pedagogical goal. It highlights strengths in UI/UX reasoning, frontend architecture, static-site deployment, and scalable asset organization. The system is intentionally lightweight, maintainable, and aligned with real-world ESL learning needs.
+Run locally using Python:
+```bash
+python3 -m http.server 8000
+```
+
+Then open in a browser:
+Home page:
+```bash
+http://localhost:8000
+```
+Example pages:
+```bash
+http://localhost:8000/Numbers/SingleDigits/
+```
+```bash
+http://localhost:8000/House/
+```
+
+Using a local server avoids browser restrictions associated with opening HTML files directly from disk.
+
+---
+
+## Getting Started
+### Prerequisites
+A modern web browser
+Python 3 (for local development server)
+
+### Run the application
+```bash
+python3 -m http.server 8000
+```
+
+---
+
+## Project Structure
+- index.html — homepage and category navigation
+- assets/ — shared CSS and JavaScript
+- Numbers/ — number-related vocabulary sets
+- House/ — house-related vocabulary sets
+Each vocabulary set includes image/ and audio/ subdirectories
+
+---
+
+## Testing
+This project currently relies on manual browser-based testing.
+
+Planned improvements include:
+Basic smoke tests to ensure pages load correctly
+Automated checks to verify asset paths and media availability
+
+---
+
+## What This Project Demonstrates
+- Clear organization of static web projects
+- User-focused design for language learning
+- Practical handling of media assets
+- Progressive scope control (shipping complete features first)
+- Clean repository hygiene suitable for portfolio review
 
 ---
 
 ## License
-© 2025 James Stevens. All rights reserved.
-
-This source code is provided for educational, evaluation, and portfolio review purposes.
-Permission is granted to clone and run the code locally for non-commercial review.
-
-No permission is granted to copy, modify, redistribute, or use this code in
-commercial or production systems without explicit written consent from the author.
+This project is licensed under the MIT License.
+See the [LICENSE](LICENSE) file for details.
