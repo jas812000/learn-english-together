@@ -1,9 +1,30 @@
-// Footer year
-const y = document.getElementById('y'); if (y) y.textContent = new Date().getFullYear();
+// Keep the footer copyright year current.
+const year = document.getElementById('y');
 
-// Click-to-play audio
-document.addEventListener('click', (e) => {
-  const b = e.target.closest('.speak'); if (!b) return;
-  const id = b.getAttribute('data-audio'); const el = document.getElementById('audio-'+id);
-  if (el){ el.currentTime=0; el.play(); }
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
+
+// Play the pronunciation audio associated with a vocabulary button.
+document.addEventListener('click', (event) => {
+  const button = event.target.closest('.speak');
+
+  if (!button) {
+    return;
+  }
+
+  const id = button.getAttribute('data-audio');
+  const audio = document.getElementById(`audio-${id}`);
+
+  if (!audio) {
+    return;
+  }
+
+  audio.currentTime = 0;
+
+  // Browser autoplay or media policies can reject playback.
+  // Keep the page usable instead of leaving an unhandled promise rejection.
+  audio.play().catch(() => {
+    // No further action is required when playback is blocked.
+  });
 });

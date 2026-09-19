@@ -1,15 +1,207 @@
-:root { --bg:#f7f7f7; --card:#fff; --border:#e6e6e6; --text:#111; }
-*{box-sizing:border-box} html,body{margin:0;padding:0}
-body{font-family:system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
-.container{max-width:980px;margin:0 auto;padding:1rem}
-.header,.footer{background:#fff;border-bottom:1px solid var(--border)}
-.grid{display:grid;gap:1rem} .links{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
-.link-card{display:flex;justify-content:space-between;padding:1rem;border:1px solid var(--border);border-radius:14px;background:var(--card);text-decoration:none;color:inherit;box-shadow:0 1px 2px rgba(0,0,0,.04)}
-.link-card:hover{transform:translateY(-1px)}
-.grid.cards{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
-.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:.75rem;box-shadow:0 1px 2px rgba(0,0,0,.04)}
-.card figure{margin:0;aspect-ratio:1/1;display:grid;place-items:center}
-.card img{max-width:100%;max-height:100%;object-fit:contain}
-.label{display:flex;justify-content:space-between;margin-top:.5rem}
-.word{font-weight:600} .muted{color:#666;font-size:.9rem}
-.speak{border:none;background:#eef3ff;border-radius:999px;padding:.45rem .7rem;cursor:pointer}
+:root {
+    /* Core color palette */
+    --bg: #f5f8fc;
+    --card: #ffffff;
+    --border: #d7e0ea;
+    --text: #1e293b;
+    --muted: #64748b;
+
+    /* Primary blue palette */
+    --primary: #6f9fd8;
+    --primary-dark: #527fb5;
+    --primary-soft: #e4effa;
+    --primary-hover: #cfdef0;
+}
+
+/* Use predictable element sizing throughout the site. */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Global page appearance */
+body {
+    font-family: system-ui, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Keep page content centered and readable on large screens. */
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Page header */
+.header {
+    background: linear-gradient(135deg, #648fbe, #82add8);
+    color: #ffffff;
+    border-bottom: 1px solid var(--primary-dark);
+}
+
+/* Keep headings readable against the blue header. */
+.header h1,
+.header h2 {
+    color: #ffffff;
+}
+
+/* Use a softer white-blue for supporting header text. */
+.header .muted {
+    color: var(--primary-soft);
+}
+
+/*
+ * Make breadcrumb and page navigation links prominent without
+ * competing visually with the page title.
+ */
+.header a:not(.link-card) {
+    display: inline-block;
+    color: #173b63;
+    font-size: 1.2rem;
+    font-weight: 550;
+    line-height: 1.4;
+    padding: 0.35rem 0;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+/* Give header navigation clear feedback on hover. */
+.header a:not(.link-card):hover {
+    color: #0f2d4d;
+}
+
+/* Footer */
+.footer {
+    background: var(--card);
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+}
+
+/* Shared grid layout */
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+/* Responsive category-navigation grid */
+.links {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+}
+
+/* Category and subcategory navigation cards */
+.link-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--card);
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.08);
+    transition:
+            transform 0.15s ease,
+            border-color 0.15s ease,
+            box-shadow 0.15s ease;
+}
+
+/* Lift category cards slightly when hovered. */
+.link-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
+}
+
+/* Keep keyboard navigation clearly visible. */
+.link-card:focus-visible {
+    outline: 3px solid var(--primary-soft);
+    border-color: var(--primary);
+}
+
+/* Responsive vocabulary-card grid */
+.grid.cards {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+/*
+ * Vocabulary cards remain white so images and vocabulary
+ * stay visually prominent against the light-blue page background.
+ */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 0.75rem;
+    box-shadow: 0 3px 8px rgba(15, 23, 42, 0.08);
+}
+
+/* Maintain a consistent square area for vocabulary images. */
+.card figure {
+    margin: 0;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-items: center;
+}
+
+/* Prevent vocabulary images from overflowing their cards. */
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Align vocabulary text and pronunciation controls. */
+.label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+/* Emphasize the vocabulary word. */
+.word {
+    font-weight: 600;
+}
+
+/* Supporting and secondary text */
+.muted {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+/* Pronunciation button */
+.speak {
+    border: 1px solid transparent;
+    background: var(--primary-soft);
+    color: var(--primary-dark);
+    border-radius: 999px;
+    padding: 0.45rem 0.7rem;
+    cursor: pointer;
+    transition:
+            background 0.15s ease,
+            transform 0.15s ease;
+}
+
+/* Provide visual feedback when hovering over pronunciation controls. */
+.speak:hover {
+    background: var(--primary-hover);
+    transform: scale(1.05);
+}
+
+/* Keep pronunciation controls accessible to keyboard users. */
+.speak:focus-visible {
+    outline: 3px solid rgba(82, 127, 181, 0.25);
+    border-color: var(--primary);
+}
+
+/* Give the pronunciation button tactile feedback when pressed. */
+.speak:active {
+    transform: scale(0.97);
+}
