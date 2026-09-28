@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Work: Office Items</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>Office Items</h1>
+      <p class="muted"><a href="../../../../index.html">← Work</a> • <a href="../../../../index.html">Home</a></p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid cards" id="cards"></div>
+  </main>
+
+  <footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+  <script>
+    const ITEMS = [
+      { word: "Desk", img: "desk.png", audio: "desk.mp3" },
+      { word: "Chair", img: "chair.png", audio: "chair.mp3" },
+      { word: "Computer", img: "computer.png", audio: "computer.mp3" },
+      { word: "Desktop Computer", img: "desktop_computer.png", audio: "desktop_computer.mp3" },
+      { word: "Laptop Computer", img: "laptop_computer.png", audio: "laptop_computer.mp3" },
+      { word: "Keyboard", img: "keyboard.png", audio: "keyboard.mp3" },
+      { word: "Printer", img: "printer.png", audio: "printer.mp3" },
+      { word: "Scanner", img: "scanner.png", audio: "scanner.mp3" }
+    ];
+    function addCard({ word, img, audio }) {
+      const div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML = `
+        <figure><img src="img/${img}" alt="${word}"></figure>
+        <div class="label"><span class="word">${word}</span>
+        <button class="speak" data-audio="${word}">🔊</button></div>
+        <audio id="audio-${word}"><source src="audio/${audio}" type="audio/mpeg"></audio>`;
+      document.getElementById("cards").appendChild(div);
+    }
+    ITEMS.forEach(addCard);
+  </script>
+  <script src="../../../../assets/site.js"></script>
+</body>
+</html>

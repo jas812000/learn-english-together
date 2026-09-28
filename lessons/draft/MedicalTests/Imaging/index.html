@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Imaging Tests</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <h1>การตรวจภาพวินิจฉัย / Imaging Tests
+      <button class="speak" data-audio="imaging_tests" aria-label="Play 'Imaging Tests'">🔊</button>
+    </h1>
+    <audio id="audio-imaging_tests" preload="auto">
+      <source src="audio/imaging_tests.mp3" type="audio/mpeg">
+    </audio>
+    <p class="muted"><a href="../../../../index.html">← Medical Diagnostic Tests</a> • <a href="../../../../index.html">Home</a></p>
+  </div>
+</header>
+
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+<script>
+  const ITEMS = [
+    { word: "X-Ray",     img: "xray.png",     audio: "xray.mp3" },
+    { word: "MRI",       img: "mri.png",      audio: "mri.mp3" },
+    { word: "CT Scan",   img: "ct_scan.png",  audio: "ct_scan.mp3" },
+    { word: "Ultrasound",img: "ultrasound.png", audio: "ultrasound.mp3" },
+    { word: "Mammogram", img: "mammogram.png", audio: "mammogram.mp3" },
+    { word: "PET Scan",  img: "pet_scan.png", audio: "pet_scan.mp3" }
+  ];
+
+  function addCard({ word, img, audio }) {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <figure><img src="image/${img}" alt="${word}"></figure>
+      <div class="label">
+        <span class="word">${word}</span>
+        <button class="speak" data-audio="${word}" aria-label="Play '${word}'">🔊</button>
+      </div>
+      <audio id="audio-${word}" preload="auto">
+        <source src="audio/${audio}" type="audio/mpeg">
+      </audio>
+    `;
+    document.getElementById("cards").appendChild(div);
+  }
+  ITEMS.forEach(addCard);
+</script>
+<script src="../../../../assets/site.js"></script>
+</body>
+</html>

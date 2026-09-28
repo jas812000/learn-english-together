@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Heart & Vessels</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <h1>หัวใจและหลอดเลือด / Heart & Vessels
+      <button class="speak" data-audio="heart_vessels">🔊</button>
+    </h1>
+    <audio id="audio-heart_vessels" preload="auto">
+      <source src="audio/heart_vessels.mp3" type="audio/mpeg">
+    </audio>
+    <p class="muted"><a href="../../../../../index.html">← Procedures</a> • <a href="../../../../../index.html">Medical Actions</a> • <a href="../../../../../index.html">Home</a></p>
+  </div>
+</header>
+
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+<script>
+  const ITEMS = [
+    { word: "Cardiac Catheterization", img: "cardiac_catheter.png", audio: "cardiac_catheterization.mp3" },
+    { word: "Angiography",             img: "angiography.png",      audio: "angiography.mp3" },
+    { word: "Angioplasty & Stent",     img: "angioplasty.png",      audio: "angioplasty_stent.mp3" },
+    { word: "Pacemaker Implant",       img: "pacemaker.png",        audio: "pacemaker_implant.mp3" },
+    { word: "CABG (Bypass)",           img: "cabg.png",             audio: "cabg.mp3" },
+    { word: "Valve Replacement",       img: "valve_replacement.png",audio: "valve_replacement.mp3" }
+  ];
+  function addCard({ word, img, audio }) {
+    const d=document.createElement("div"); d.className="card";
+    d.innerHTML=`
+      <figure><img src="image/${img}" alt="${word}"></figure>
+      <div class="label"><span class="word">${word}</span>
+      <button class="speak" data-audio="${word}">🔊</button></div>
+      <audio id="audio-${word}" preload="auto"><source src="audio/${audio}" type="audio/mpeg"></audio>`;
+    document.getElementById("cards").appendChild(d);
+  }
+  ITEMS.forEach(addCard);
+</script>
+<script src="../../../../../assets/site.js"></script>
+</body>
+</html>

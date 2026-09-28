@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Vehicles</title>
+  <link rel="stylesheet" href="../../../assets/site.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <!-- Thai -->
+    <h1>ยานพาหนะ</h1>
+    <p class="muted">เลือกประเภทยานพาหนะ</p>
+
+    <!-- English + speaker -->
+    <h1>
+      Vehicles
+      <button class="speak" data-audio="vehicles" aria-label="Play 'Vehicles'">🔊</button>
+    </h1>
+    <audio id="audio-vehicles" preload="auto">
+      <source src="audio/vehicles.mp3" type="audio/mpeg">
+    </audio>
+
+    <p class="muted">Choose a subcategory</p>
+    <p class="muted"><a href="../../../index.html">← Home</a></p>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="grid links">
+    <!-- ประเภทยานพาหนะ / Vehicle Types -->
+    <a class="link-card" href="Land/index.html"><span>ยานพาหนะทางบก / Land Vehicles</span><span>➜</span></a>
+    <a class="link-card" href="Water/index.html"><span>ยานพาหนะทางน้ำ / Water Vehicles</span><span>➜</span></a>
+    <a class="link-card" href="Air/index.html"><span>ยานพาหนะทางอากาศ / Air Vehicles</span><span>➜</span></a>
+    <a class="link-card" href="Special/index.html"><span>ยานพาหนะพิเศษ / Special Vehicles</span><span>➜</span></a>
+  </nav>
+</main>
+
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+<script src="../../../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Natural Disasters — Drought</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+<header class="header"><div class="container">
+  <h1>ภัยแล้ง / Drought <button class="speak" data-audio="drought">🔊</button></h1>
+  <audio id="audio-drought" preload="auto"><source src="audio/drought.mp3" type="audio/mpeg"></audio>
+  <p class="muted"><a href="../../../../index.html">← Natural Disasters</a> • <a href="../../../../index.html">Home</a></p>
+</div></header>
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+<script>
+const ITEMS = [
+  { word:"Drought",     img:"drought.png",     audio:"drought.mp3" },
+  { word:"Dry Soil",    img:"dry_soil.png",    audio:"dry_soil.mp3" },
+  { word:"Water Shortage", img:"water_shortage.png", audio:"water_shortage.mp3" },
+  { word:"Heat Wave",   img:"heat_wave.png",   audio:"heat_wave.mp3" },
+  { word:"Conserve Water", img:"conserve_water.png", audio:"conserve_water.mp3" },
+  { word:"Irrigation",  img:"irrigation.png",  audio:"irrigation.mp3" }
+];
+function addCard(i){const d=document.createElement("div");d.className="card";d.innerHTML=`<figure><img src="image/${i.img}" alt="${i.word}"></figure><div class="label"><span class="word">${i.word}</span><button class="speak" data-audio="${i.word}">🔊</button></div><audio id="audio-${i.word}" preload="auto"><source src="audio/${i.audio}" type="audio/mpeg"></audio>`;document.getElementById("cards").appendChild(d);} ITEMS.forEach(addCard);
+</script><script src="../../../../assets/site.js"></script>
+</body></html>

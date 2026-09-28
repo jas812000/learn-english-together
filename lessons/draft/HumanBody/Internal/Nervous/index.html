@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Nervous System</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <h1>ระบบประสาท / Nervous System
+      <button class="speak" data-audio="nervous_system" aria-label="Play 'Nervous System'">🔊</button>
+    </h1>
+    <audio id="audio-nervous_system" preload="auto">
+      <source src="audio/nervous_system.mp3" type="audio/mpeg">
+    </audio>
+    <p class="muted"><a href="../../../../../index.html">← Internal Systems</a> • <a href="../../../../../index.html">Human Body</a> • <a href="../../../../../index.html">Home</a></p>
+  </div>
+</header>
+
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+<script>
+  const ITEMS = [
+    { word: "Brain",        img: "brain.png",        audio: "brain.mp3" },
+    { word: "Spinal Cord",  img: "spinal_cord.png",  audio: "spinal_cord.mp3" },
+    { word: "Nerve",        img: "nerve.png",        audio: "nerve.mp3" }
+  ];
+
+  function addCard({ word, img, audio }) {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <figure><img src="image/${img}" alt="${word}"></figure>
+      <div class="label">
+        <span class="word">${word}</span>
+        <button class="speak" data-audio="${word}" aria-label="Play '${word}'">🔊</button>
+      </div>
+      <audio id="audio-${word}" preload="auto">
+        <source src="audio/${audio}" type="audio/mpeg">
+      </audio>
+    `;
+    document.getElementById("cards").appendChild(div);
+  }
+
+  ITEMS.forEach(addCard);
+</script>
+<script src="../../../../../assets/site.js"></script>
+</body>
+</html>
