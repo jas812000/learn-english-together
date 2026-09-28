@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Temperature</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <h1>อุณหภูมิ / Temperature
+      <button class="speak" data-audio="temperature" aria-label="Play 'Temperature'">🔊</button>
+    </h1>
+    <audio id="audio-temperature" preload="auto">
+      <source src="audio/temperature.mp3" type="audio/mpeg">
+    </audio>
+    <p class="muted"><a href="../../../../index.html">← Vital Signs</a> • <a href="../../../../index.html">Home</a></p>
+  </div>
+</header>
+
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+<script>
+  // Core vocab + useful concepts for teaching temperature
+  const ITEMS = [
+    { word: "Thermometer",      img: "thermometer.png",      audio: "thermometer.mp3" },
+    { word: "Fever",            img: "fever.png",            audio: "fever.mp3" },
+    { word: "Normal Temperature", img: "normal_temp.png",    audio: "normal_temperature.mp3" },
+    { word: "Celsius (°C)",     img: "celsius.png",          audio: "celsius.mp3" },
+    { word: "Fahrenheit (°F)",  img: "fahrenheit.png",       audio: "fahrenheit.mp3" },
+    { word: "Hypothermia",      img: "hypothermia.png",      audio: "hypothermia.mp3" }
+    { word: "Hyperthermia",     img: "hyperthermia.png",     audio: "hyperthermia.mp3" }
+  ];
+
+  function addCard({ word, img, audio }) {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <figure><img src="image/${img}" alt="${word}"></figure>
+      <div class="label">
+        <span class="word">${word}</span>
+        <button class="speak" data-audio="${word}" aria-label="Play '${word}'">🔊</button>
+      </div>
+      <audio id="audio-${word}" preload="auto">
+        <source src="audio/${audio}" type="audio/mpeg">
+      </audio>
+    `;
+    document.getElementById("cards").appendChild(div);
+  }
+  ITEMS.forEach(addCard);
+</script>
+<script src="../../../../assets/site.js"></script>
+</body>
+</html>

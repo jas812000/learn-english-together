@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Torso</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <h1>ลำตัว / Torso
+      <button class="speak" data-audio="torso" aria-label="Play 'Torso'">🔊</button>
+    </h1>
+    <audio id="audio-torso" preload="auto">
+      <source src="audio/torso.mp3" type="audio/mpeg">
+    </audio>
+    <p class="muted"><a href="../../../../../index.html">← External Systems</a> • <a href="../../../../../index.html">Human Body</a> • <a href="../../../../../index.html">Home</a></p>
+  </div>
+</header>
+
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+<script>
+  const ITEMS = [
+    { word: "Neck",          img: "neck.png",          audio: "neck.mp3" },
+    { word: "Shoulder",      img: "shoulder.png",      audio: "shoulder.mp3" },
+    { word: "Chest",         img: "chest.png",         audio: "chest.mp3" },
+    { word: "Back",          img: "back.png",          audio: "back.mp3" },
+    { word: "Waist",         img: "waist.png",         audio: "waist.mp3" },
+    { word: "Stomach",       img: "stomach.png",       audio: "stomach.mp3" },
+    { word: "Belly Button",  img: "belly_button.png",  audio: "belly_button.mp3" }
+  ];
+
+  function addCard({ word, img, audio }) {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <figure><img src="image/${img}" alt="${word}"></figure>
+      <div class="label">
+        <span class="word">${word}</span>
+        <button class="speak" data-audio="${word}" aria-label="Play '${word}'">🔊</button>
+      </div>
+      <audio id="audio-${word}" preload="auto">
+        <source src="audio/${audio}" type="audio/mpeg">
+      </audio>
+    `;
+    document.getElementById("cards").appendChild(div);
+  }
+
+  ITEMS.forEach(addCard);
+</script>
+<script src="../../../../../assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Wild Animals</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <h1>สัตว์ป่า / Wild Animals
+      <button class="speak" data-audio="wild_animals" aria-label="Play 'Wild Animals'">🔊</button>
+    </h1>
+    <audio id="audio-wild_animals" preload="auto">
+      <source src="audio/wild_animals.mp3" type="audio/mpeg">
+    </audio>
+    <p class="muted"><a href="../../../../index.html">← Animals</a> • <a href="../../../../index.html">Home</a></p>
+  </div>
+</header>
+
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+<script>
+  const ITEMS = [
+    { word: "Lion",    img: "lion.png",    audio: "lion.mp3" },
+    { word: "Tiger",   img: "tiger.png",   audio: "tiger.mp3" },
+    { word: "Elephant",img: "elephant.png",audio: "elephant.mp3" },
+    { word: "Bear",    img: "bear.png",    audio: "bear.mp3" },
+    { word: "Monkey",  img: "monkey.png",  audio: "monkey.mp3" },
+    { word: "Giraffe", img: "giraffe.png", audio: "giraffe.mp3" },
+    { word: "Zebra",   img: "zebra.png",   audio: "zebra.mp3" },
+    { word: "Wolf",    img: "wolf.png",    audio: "wolf.mp3" },
+    { word: "Deer",    img: "deer.png",    audio: "deer.mp3" },
+    { word: "Panda",   img: "panda.png",   audio: "panda.mp3" },
+    { word: "Kangaroo",img: "kangaroo.png",audio: "kangaroo.mp3" }
+  ];
+
+  function addCard({ word, img, audio }) {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <figure><img src="image/${img}" alt="${word}"></figure>
+      <div class="label">
+        <span class="word">${word}</span>
+        <button class="speak" data-audio="${word}" aria-label="Play '${word}'">🔊</button>
+      </div>
+      <audio id="audio-${word}" preload="auto">
+        <source src="audio/${audio}" type="audio/mpeg">
+      </audio>
+    `;
+    document.getElementById("cards").appendChild(div);
+  }
+  ITEMS.forEach(addCard);
+</script>
+<script src="../../../../assets/site.js"></script>
+</body>
+</html>
+

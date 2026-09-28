@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vital Signs — Blood Pressure</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+<header class="header"><div class="container">
+  <h1>ความดันโลหิต / Blood Pressure
+    <button class="speak" data-audio="blood_pressure">🔊</button>
+  </h1>
+  <audio id="audio-blood_pressure" preload="auto"><source src="audio/blood_pressure.mp3" type="audio/mpeg"></audio>
+  <p class="muted"><a href="../../../../index.html">← Vital Signs</a> • <a href="../../../../index.html">Home</a></p>
+</div></header>
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+<script>
+const ITEMS = [
+  { word:"Blood Pressure", img:"blood_pressure.png", audio:"blood_pressure.mp3" },
+  { word:"Sphygmomanometer", img:"bp_cuff.png", audio:"sphygmomanometer.mp3" },
+  { word:"Cuff", img:"cuff.png", audio:"cuff.mp3" },
+  { word:"Systolic", img:"systolic.png", audio:"systolic.mp3" },
+  { word:"Diastolic", img:"diastolic.png", audio:"diastolic.mp3" },
+  { word:"Reading", img:"reading.png", audio:"reading.mp3" }
+];
+function addCard(o){const d=document.createElement("div");d.className="card";d.innerHTML=`<figure><img src="image/${o.img}" alt="${o.word}"></figure><div class="label"><span class="word">${o.word}</span><button class="speak" data-audio="${o.word}">🔊</button></div><audio id="audio-${o.word}" preload="auto"><source src="audio/${o.audio}" type="audio/mpeg"></audio>`;document.getElementById("cards").appendChild(d);} ITEMS.forEach(addCard);
+</script><script src="../../../../assets/site.js"></script>
+</body></html>

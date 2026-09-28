@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kitchen — Food Preparation</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>อุปกรณ์เตรียมอาหาร / Food Preparation
+        <button class="speak" data-audio="food_preparation" aria-label="Play 'Food Preparation'">🔊</button>
+      </h1>
+      <audio id="audio-food_preparation" preload="auto">
+        <source src="audio/food_preparation.mp3" type="audio/mpeg">
+      </audio>
+      <p class="muted"><a href="../../../../../index.html">← Kitchen</a> • <a href="../../../../../index.html">Home</a></p>
+    </div>
+  </header>
+
+  <main class="container"><div class="grid cards" id="cards"></div></main>
+  <footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+  <script>
+    const ITEMS = [
+      { word: "Cutting Board", img: "cutting_board.png", audio: "cutting_board.mp3" },
+      { word: "Knife", img: "knife.png", audio: "knife.mp3" },
+      { word: "Peeler", img: "peeler.png", audio: "peeler.mp3" },
+      { word: "Measuring Cup", img: "measuring_cup.png", audio: "measuring_cup.mp3" },
+      { word: "Measuring Spoon", img: "measuring_spoon.png", audio: "measuring_spoon.mp3" },
+      { word: "Mixing Bowl", img: "mixing_bowl.png", audio: "mixing_bowl.mp3" },
+      { word: "Colander", img: "colander.png", audio: "colander.mp3" },
+      { word: "Strainer", img: "strainer.png", audio: "strainer.mp3" },
+      { word: "Grater", img: "grater.png", audio: "grater.mp3" },
+      { word: "Rolling Pin", img: "rolling_pin.png", audio: "rolling_pin.mp3" },
+      { word: "Funnel", img: "funnel.png", audio: "funnel.mp3" }
+    ];
+
+    function addCard({ word, img, audio }) {
+      const div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML = `
+        <figure><img src="image/${img}" alt="${word}"></figure>
+        <div class="label">
+          <span class="word">${word}</span>
+          <button class="speak" data-audio="${word}">🔊</button>
+        </div>
+        <audio id="audio-${word}" preload="auto">
+          <source src="audio/${audio}" type="audio/mpeg">
+        </audio>
+      `;
+      document.getElementById("cards").appendChild(div);
+    }
+
+    ITEMS.forEach(addCard);
+  </script>
+  <script src="../../../../../assets/site.js"></script>
+</body>
+</html>

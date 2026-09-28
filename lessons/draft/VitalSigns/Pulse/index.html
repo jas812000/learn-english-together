@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vital Signs — Pulse</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+<header class="header"><div class="container">
+  <h1>ชีพจร / Pulse (Heart Rate)
+    <button class="speak" data-audio="pulse">🔊</button>
+  </h1>
+  <audio id="audio-pulse" preload="auto"><source src="audio/pulse.mp3" type="audio/mpeg"></audio>
+  <p class="muted"><a href="../../../../index.html">← Vital Signs</a> • <a href="../../../../index.html">Home</a></p>
+</div></header>
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+<script>
+const ITEMS = [
+  { word:"Heart Rate", img:"heart_rate.png", audio:"heart_rate.mp3" },
+  { word:"Pulse",      img:"pulse.png",      audio:"pulse.mp3" },
+  { word:"Stethoscope",img:"stethoscope.png",audio:"stethoscope.mp3" },
+  { word:"Pulse Oximeter", img:"pulse_oximeter.png", audio:"pulse_oximeter.mp3" },
+  { word:"Resting Rate", img:"resting_rate.png", audio:"resting_rate.mp3" },
+  { word:"Exercise",   img:"exercise.png",   audio:"exercise.mp3" }
+];
+function addCard(o){const d=document.createElement("div");d.className="card";d.innerHTML=`<figure><img src="image/${o.img}" alt="${o.word}"></figure><div class="label"><span class="word">${o.word}</span><button class="speak" data-audio="${o.word}">🔊</button></div><audio id="audio-${o.word}" preload="auto"><source src="audio/${o.audio}" type="audio/mpeg"></audio>`;document.getElementById("cards").appendChild(d);} ITEMS.forEach(addCard);
+</script><script src="../../../../assets/site.js"></script>
+</body></html>

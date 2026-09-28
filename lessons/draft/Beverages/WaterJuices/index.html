@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Water & Juices</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <h1>น้ำและน้ำผลไม้ / Water & Juices
+      <button class="speak" data-audio="water_juices" aria-label="Play 'Water & Juices'">🔊</button>
+    </h1>
+    <audio id="audio-water_juices" preload="auto">
+      <source src="audio/water_juices.mp3" type="audio/mpeg">
+    </audio>
+    <p class="muted"><a href="../../../../index.html">← Beverages</a> • <a href="../../../../index.html">Home</a></p>
+  </div>
+</header>
+
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+<script>
+  const ITEMS = [
+    { word: "Water",          img: "water.png",           audio: "water.mp3" },
+    { word:"Sparkling Water", img: "sparkling_water.png", audio: "sparkling_water.mp3" },
+    { word: "Coconut Water",  img: "coconut_water.png",   audio: "coconut_water.mp3" },
+    { word: "Orange Juice",   img: "orange_juice.png",    audio: "orange_juice.mp3" },
+    { word: "Apple Juice",    img: "apple_juice.png",     audio: "apple_juice.mp3" },
+    { word: "Grape Juice",    img: "grape_juice.png",     audio: "grape_juice.mp3" },
+    { word: "Fruit Smoothie", img: "fruit_smoothie.png",  audio: "fruit_smoothie.mp3" }
+  ];
+
+  function addCard({ word, img, audio }) {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <figure><img src="image/${img}" alt="${word}"></figure>
+      <div class="label">
+        <span class="word">${word}</span>
+        <button class="speak" data-audio="${word}" aria-label="Play '${word}'">🔊</button>
+      </div>
+      <audio id="audio-${word}" preload="auto">
+        <source src="audio/${audio}" type="audio/mpeg">
+      </audio>
+    `;
+    document.getElementById("cards").appendChild(div);
+  }
+  ITEMS.forEach(addCard);
+</script>
+<script src="../../../../assets/site.js"></script>
+</body>
+</html>

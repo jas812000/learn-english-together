@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Fruits</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <h1>ผลไม้ / Fruits
+      <button class="speak" data-audio="fruits" aria-label="Play 'Fruits'">🔊</button>
+    </h1>
+    <audio id="audio-fruits" preload="auto">
+      <source src="audio/fruits.mp3" type="audio/mpeg">
+    </audio>
+    <p class="muted"><a href="../../../../index.html">← Food</a> • <a href="../../../../index.html">Home</a></p>
+  </div>
+</header>
+
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+<script>
+  const ITEMS = [
+    { word: "Apple",      img: "apple.png",      audio: "apple.mp3" },
+    { word: "Banana",     img: "banana.png",     audio: "banana.mp3" },
+    { word: "Orange",     img: "orange.png",     audio: "orange.mp3" },
+    { word: "Mango",      img: "mango.png",      audio: "mango.mp3" },
+    { word: "Pineapple",  img: "pineapple.png",  audio: "pineapple.mp3" },
+    { word: "Watermelon", img: "watermelon.png", audio: "watermelon.mp3" },
+    { word: "Grapes",     img: "grapes.png",     audio: "grapes.mp3" },
+    { word: "Strawberry", img: "strawberry.png", audio: "strawberry.mp3" }
+  ];
+
+  function addCard({ word, img, audio }) {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <figure><img src="image/${img}" alt="${word}"></figure>
+      <div class="label">
+        <span class="word">${word}</span>
+        <button class="speak" data-audio="${word}" aria-label="Play '${word}'">🔊</button>
+      </div>
+      <audio id="audio-${word}" preload="auto">
+        <source src="audio/${audio}" type="audio/mpeg">
+      </audio>
+    `;
+    document.getElementById("cards").appendChild(div);
+  }
+  ITEMS.forEach(addCard);
+</script>
+<script src="../../../../assets/site.js"></script>
+</body>
+</html>
+

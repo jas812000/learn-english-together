@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Health Measurements — Body Fat %</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+<header class="header"><div class="container">
+  <h1>เปอร์เซ็นต์ไขมันในร่างกาย / Body Fat % <button class="speak" data-audio="body_fat">🔊</button></h1>
+  <audio id="audio-body_fat" preload="auto"><source src="audio/body_fat.mp3" type="audio/mpeg"></audio>
+  <p class="muted"><a href="../../../../index.html">← Health Measurements</a> • <a href="../../../../index.html">Home</a></p>
+</div></header>
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+<script>
+const ITEMS = [
+  { word:"Body Fat", img:"body_fat.png", audio:"body_fat.mp3" },
+  { word:"Skinfold Caliper", img:"skinfold_caliper.png", audio:"skinfold_caliper.mp3" },
+  { word:"Bioelectrical Impedance", img:"bioelectrical_impedance.png", audio:"bioelectrical_impedance.mp3" },
+  { word:"Percentage", img:"percentage.png", audio:"percentage.mp3" },
+  { word:"Lean Body Mass", img:"lean_body_mass.png", audio:"lean_body_mass.mp3" },
+  { word:"Chart", img:"chart.png", audio:"chart.mp3" }
+];
+function addCard({ word, img, audio }) {
+    const div = document.createElement("div");
+    div.className = "card";
+    div.innerHTML = `
+      <figure><img src="image/${img}" alt="${word}"></figure>
+      <div class="label">
+        <span class="word">${word}</span>
+        <button class="speak" data-audio="${word}" aria-label="Play '${word}'">🔊</button>
+      </div>
+      <audio id="audio-${word}" preload="auto">
+        <source src="audio/${audio}" type="audio/mpeg">
+      </audio>
+    `;
+    document.getElementById("cards").appendChild(div);
+  }
+  ITEMS.forEach(addCard);
+</script>
+<script src="../../../../assets/site.js"></script>
+</body>
+</html>

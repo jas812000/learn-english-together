@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vital Signs — Oxygen Saturation</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+<header class="header"><div class="container">
+  <h1>ความอิ่มตัวออกซิเจน / Oxygen Saturation (SpO₂)
+    <button class="speak" data-audio="oxygen_saturation">🔊</button>
+  </h1>
+  <audio id="audio-oxygen_saturation" preload="auto"><source src="audio/oxygen_saturation.mp3" type="audio/mpeg"></audio>
+  <p class="muted"><a href="../../../../index.html">← Vital Signs</a> • <a href="../../../../index.html">Home</a></p>
+</div></header>
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+<script>
+const ITEMS = [
+  { word:"Oxygen Saturation", img:"oxygen_saturation.png", audio:"oxygen_saturation.mp3" },
+  { word:"Pulse Oximeter",    img:"pulse_oximeter.png",    audio:"pulse_oximeter.mp3" },
+  { word:"Finger Sensor",     img:"finger_sensor.png",     audio:"finger_sensor.mp3" },
+  { word:"Oxygen",            img:"oxygen.png",            audio:"oxygen.mp3" },
+  { word:"Nasal Cannula",     img:"nasal_cannula.png",     audio:"nasal_cannula.mp3" },
+  { word:"Low Oxygen",        img:"low_oxygen.png",        audio:"low_oxygen.mp3" }
+];
+function addCard(i){const d=document.createElement("div");d.className="card";d.innerHTML=`<figure><img src="image/${i.img}" alt="${i.word}"></figure><div class="label"><span class="word">${i.word}</span><button class="speak" data-audio="${i.word}">🔊</button></div><audio id="audio-${i.word}" preload="auto"><source src="audio/${i.audio}" type="audio/mpeg"></audio>`;document.getElementById("cards").appendChild(d);} ITEMS.forEach(addCard);
+</script><script src="../../../../assets/site.js"></script>
+</body></html>

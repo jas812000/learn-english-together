@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Digestive & Endoscopy</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <h1>ระบบทางเดินอาหาร & ส่องกล้อง / Digestive & Endoscopy
+      <button class="speak" data-audio="digestive_endoscopy">🔊</button>
+    </h1>
+    <audio id="audio-digestive_endoscopy" preload="auto">
+      <source src="audio/digestive_endoscopy.mp3" type="audio/mpeg">
+    </audio>
+    <p class="muted"><a href="../../../../../index.html">← Procedures</a> • <a href="../../../../../index.html">Medical Actions</a> • <a href="../../../../../index.html">Home</a></p>
+  </div>
+</header>
+
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+<script>
+  const ITEMS = [
+    { word: "Endoscopy (EGD)", img: "endoscopy.png",      audio: "endoscopy.mp3" },
+    { word: "Colonoscopy",     img: "colonoscopy.png",    audio: "colonoscopy.mp3" },
+    { word: "ERCP",            img: "ercp.png",           audio: "ercp.mp3" },
+    { word: "PEG Tube",        img: "peg_tube.png",       audio: "peg_tube.mp3" },
+    { word: "Liver Biopsy",    img: "liver_biopsy.png",   audio: "liver_biopsy.mp3" },
+    { word: "Gastric Bypass",  img: "gastric_bypass.png", audio: "gastric_bypass.mp3" }
+  ];
+  function addCard({ word, img, audio }) {
+    const d=document.createElement("div"); d.className="card";
+    d.innerHTML=`
+      <figure><img src="image/${img}" alt="${word}"></figure>
+      <div class="label"><span class="word">${word}</span>
+      <button class="speak" data-audio="${word}">🔊</button></div>
+      <audio id="audio-${word}" preload="auto"><source src="audio/${audio}" type="audio/mpeg"></audio>`;
+    document.getElementById("cards").appendChild(d);
+  }
+  ITEMS.forEach(addCard);
+</script>
+<script src="../../../../../assets/site.js"></script>
+</body>
+</html>

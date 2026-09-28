@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>English Practice Zone — Animals</title>
+  <link rel="stylesheet" href="../../../assets/site.css" />
+</head>
+<body>
+<header class="header">
+  <div class="container">
+    <!-- Thai -->
+    <h1>สัตว์</h1>
+    <p class="muted">เลือกหมวดย่อยของสัตว์</p>
+
+    <!-- English + speaker -->
+    <h1>
+      Animals
+      <button class="speak" data-audio="animals" aria-label="Play 'Animals'">🔊</button>
+    </h1>
+    <audio id="audio-animals" preload="auto">
+      <source src="audio/animals.mp3" type="audio/mpeg">
+    </audio>
+
+    <p class="muted">Choose a subcategory</p>
+    <p class="muted"><a href="../../../index.html">← Home</a></p>
+  </div>
+</header>
+
+<main class="container">
+  <nav class="grid links">
+    <!-- หมวดหมู่สัตว์ / Animal Categories -->
+    <a class="link-card" href="Pets/index.html"><span>สัตว์เลี้ยง / Pets</span><span>➜</span></a>
+    <a class="link-card" href="Farm/index.html"><span>สัตว์ในฟาร์ม / Farm Animals</span><span>➜</span></a>
+    <a class="link-card" href="Wild/index.html"><span>สัตว์ป่า / Wild Animals</span><span>➜</span></a>
+    <a class="link-card" href="Birds/index.html"><span>นก / Birds</span><span>➜</span></a>
+    <a class="link-card" href="Sea/index.html"><span>สัตว์ทะเล / Sea Animals</span><span>➜</span></a>
+    <a class="link-card" href="Insects/index.html"><span>แมลง / Insects</span><span>➜</span></a>
+    <a class="link-card" href="Reptiles/index.html"><span>สัตว์เลื้อยคลาน / Reptiles</span><span>➜</span></a>
+  </nav>
+</main>
+
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+<script src="../../../assets/site.js"></script>
+</body>
+</html>

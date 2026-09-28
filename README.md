@@ -16,6 +16,30 @@ https://jas812000.github.io/learn-english-together/
 
 ---
 
+## Screenshots
+
+The screenshots below demonstrate the completed, publicly available vocabulary lessons.
+
+### Homepage
+![Bilingual homepage](docs/screenshots/home.png)
+
+### Numbers
+![Numbers category](docs/screenshots/numbers.png)
+
+### Single Digits
+![Single-digit vocabulary cards](docs/screenshots/single-digits.png)
+
+### House
+![House category](docs/screenshots/house.png)
+
+### Kitchen
+![Kitchen navigation](docs/screenshots/kitchen.png)
+
+### Food Preparation
+![Food preparation vocabulary cards](docs/screenshots/food-preparation.png)
+
+---
+
 ## Features
 
 - Image-based vocabulary cards
@@ -108,14 +132,26 @@ Using a local server avoids browser restrictions that can occur when HTML files 
 .
 ├── .github/workflows/    GitHub Actions CI
 ├── assets/               Shared CSS and JavaScript
-├── House/                Public house vocabulary content
-├── Numbers/              Public number vocabulary content
+├── lessons/
+│   ├── published/
+│   │   ├── House/        Published house vocabulary
+│   │   └── Numbers/      Published number vocabulary
+│   └── draft/            Unfinished vocabulary categories
+├── docs/
+│   └── screenshots/       Screenshots of published lessons
 ├── scripts/              Site-validation tooling
 ├── index.html            Public homepage
 └── README.md
 ```
 
-The repository also contains additional vocabulary categories that are not currently exposed from the public homepage. They remain future content rather than part of the released feature set.
+Published lessons are maintained in `lessons/published/`. Unfinished
+vocabulary categories are organized separately in `lessons/draft/`.
+
+Only published lessons are linked from the public homepage. Draft lessons
+remain accessible through direct URLs when deployed to GitHub Pages; their
+directory location does not prevent public access.
+
+Screenshots of the completed lessons are stored in `docs/screenshots/`.
 
 ---
 
@@ -136,6 +172,14 @@ The validator starts at the public homepage and traverses the site's reachable H
 - Invalid `<image>` elements
 
 GitHub Actions runs the same validation automatically on pushes and pull requests.
+
+The automated validator covers pages reachable from the public homepage.
+Draft lessons are excluded from this release-level validation until they
+are ready for publication.
+
+A separate structural check confirmed that all 103 draft HTML pages have
+valid local navigation and asset references, apart from 60 outstanding
+pronunciation recordings. Those recordings remain future development work.
 
 Manual browser testing is also used to verify visual layout, navigation, and pronunciation playback behavior that static validation cannot fully exercise.
 

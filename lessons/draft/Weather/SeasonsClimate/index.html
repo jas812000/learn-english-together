@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Weather — Seasons & Climate</title>
+  <link rel="stylesheet" href="../../../../assets/site.css" />
+</head>
+<body>
+<header class="header"><div class="container">
+  <h1>ฤดูกาลและภูมิอากาศ / Seasons & Climate
+    <button class="speak" data-audio="seasons_climate">🔊</button>
+  </h1>
+  <audio id="audio-seasons_climate" preload="auto">
+    <source src="audio/seasons_climate.mp3" type="audio/mpeg">
+  </audio>
+  <p class="muted"><a href="../../../../index.html">← Weather</a> • <a href="../../../../index.html">Home</a></p>
+</div></header>
+<main class="container"><div class="grid cards" id="cards"></div></main>
+<footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+<script>
+const ITEMS = [
+  { word: "Spring", img: "spring.png", audio: "spring.mp3" },
+  { word: "Summer", img: "summer.png", audio: "summer.mp3" },
+  { word: "Autumn", img: "autumn.png", audio: "autumn.mp3" },
+  { word: "Winter", img: "winter.png", audio: "winter.mp3" },
+  { word: "Hot",    img: "hot.png",    audio: "hot.mp3" },
+  { word: "Cold",   img: "cold.png",   audio: "cold.mp3" },
+  { word: "Humid",  img: "humid.png",  audio: "humid.mp3" }
+];
+function addCard(i){const d=document.createElement("div");d.className="card";d.innerHTML=`<figure><img src="image/${i.img}" alt="${i.word}"></figure><div class="label"><span class="word">${i.word}</span><button class="speak" data-audio="${i.word}">🔊</button></div><audio id="audio-${i.word}" preload="auto"><source src="audio/${i.audio}" type="audio/mpeg"></audio>`;document.getElementById("cards").appendChild(d);} ITEMS.forEach(addCard);
+</script>
+<script src="../../../../assets/site.js"></script>
+</body>
+</html>

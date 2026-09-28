@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kitchen — Appliances</title>
+  <link rel="stylesheet" href="../../../../../assets/site.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>
+        เครื่องใช้ไฟฟ้า / Appliances
+        <button class="speak" data-audio="appliances">🔊</button>
+      </h1>
+      <audio id="audio-appliances" preload="auto">
+        <source src="audio/appliances.mp3" type="audio/mpeg">
+      </audio>
+      <p class="muted"><a href="../../../../../index.html">← Kitchen</a> • <a href="../../../../../index.html">Home</a></p>
+    </div>
+  </header>
+
+  <main class="container"><div class="grid cards" id="cards"></div></main>
+  <footer class="footer"><div class="container">© <span id="y"></span> English Practice Zone</div></footer>
+
+  <script>
+    const ITEMS = [
+      { word: "Refrigerator", img: "refrigerator.png", audio: "refrigerator.mp3" },
+      { word: "Fridge", img: "fridge.png", audio: "fridge.mp3" },
+      { word: "Freezer", img: "freezer.png", audio: "freezer.mp3" },
+      { word: "Dishwasher", img: "dishwasher.png", audio: "dishwasher.mp3" },
+      { word: "Oven", img: "oven.png", audio: "oven.mp3" },
+      { word: "Microwave", img: "microwave.png", audio: "microwave.mp3" },
+      { word: "Blender", img: "blender.png", audio: "blender.mp3" },
+      { word: "Toaster", img: "toaster.png", audio: "toaster.mp3" },
+      { word: "Mixer", img: "mixer.png", audio: "mixer.mp3" },
+      { word: "Coffee Maker", img: "coffee_maker.png", audio: "coffee_maker.mp3" },
+      { word: "Gas Stove", img: "gas_stove.png", audio: "gas_stove.mp3" },
+      { word: "Electric Stove", img: "electric_stove.png", audio: "electric_stove.mp3" },
+      { word: "Gas Stovetop", img: "gas_stovetop.png", audio: "gas_stovetop.mp3" },
+      { word: "Electric Stovetop", img: "electric_stovetop.png", audio: "electric_stovetop.mp3" }
+    ];
+    function addCard({ word, img, audio }) {
+      const div = document.createElement("div"); div.className = "card";
+      div.innerHTML = `
+        <figure><img src="image/${img}" alt="${word}"></figure>
+        <div class="label"><span class="word">${word}</span>
+        <button class="speak" data-audio="${word}">🔊</button></div>
+        <audio id="audio-${word}"><source src="audio/${audio}" type="audio/mpeg"></audio>`;
+      document.getElementById("cards").appendChild(div);
+    }
+    ITEMS.forEach(addCard);
+  </script>
+  <script src="../../../../../assets/site.js"></script>
+</body>
+</html>
